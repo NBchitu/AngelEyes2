@@ -18,7 +18,7 @@ import com.facebook.android.Facebook;
 import com.facebook.android.SessionStore;
 import com.fridaylab.deeper.communication.DeeperModel;
 import com.fridaylab.deeper.ui.LanguageSelectionFragment;
-import com.fridaylab.deeper.ui.LanguageSelectionFragment.OnLanguageSelectedListener;
+import com.fridaylab.deeper.ui.LanguageSelectionFragment$OnLanguageSelectedListener;
 import com.google.analytics.tracking.android.EasyTracker;
 import com.google.analytics.tracking.android.MapBuilder;
 import com.google.android.gms.common.GooglePlayServicesUtil;
@@ -31,7 +31,7 @@ import com.telesoftas.utilities.social.SocialNetworksConstants;
 
 public class SettingsActivity
   extends TrackedActivity
-  implements View.OnClickListener, LanguageSelectionFragment.OnLanguageSelectedListener
+  implements View.OnClickListener, LanguageSelectionFragment$OnLanguageSelectedListener
 {
   View A;
   View B;
@@ -43,8 +43,8 @@ public class SettingsActivity
   private TextView N;
   private String O;
   private boolean P = false;
-  private final Handler Q = new SettingsActivity.4(this);
-  private final Handler R = new SettingsActivity.6(this);
+  private final Handler Q = new SettingsActivity$4(this);
+  private final Handler R = new SettingsActivity$6(this);
   TextView n;
   TextView o;
   TextView p;
@@ -114,18 +114,19 @@ public class SettingsActivity
   private void g()
   {
     int i = this.J.getInt(SettingsUtils.a, 0);
-    String str1 = getString(2131427632) + ": ";
+    String str1 = getString(2131427632) + ": ";	// units
     if (i == 0) {
-      str1 = str1 + getString(2131427515);
+      str1 = str1 + getString(2131427515);	// metric
     }
     if (i == 1) {
-      str1 = str1 + getString(2131427463);
+      str1 = str1 + getString(2131427463);	// imperial
     }
     if (i == 2) {
-      str1 = str1 + getString(2131427423);
+      str1 = str1 + getString(2131427423);	// fathomical
+
     }
     if (i == 3) {
-      str1 = str1 + getString(2131427425);
+      str1 = str1 + getString(2131427425);	// feet_and_celsius
     }
     this.n.setText(str1);
     int j;
@@ -153,7 +154,7 @@ public class SettingsActivity
       if ((this.J.getInt(SettingsUtils.c, 2) != 2) && (j == 0)) {
         break label672;
       }
-      str2 = getString(2131427432) + ": " + getString(2131427465);
+      str2 = getString(2131427432) + ": " + getString(2131427465);	// frequency   kHz290
       this.o.setText(str2);
       TextView localTextView1 = this.o;
       if (k != 0) {
@@ -196,28 +197,28 @@ public class SettingsActivity
     label735:
     for (boolean bool4 = true;; bool4 = false)
     {
-      a(localTextView5, 2131427428, str5, 1, true, bool4);
-      a(this.s, 2131427456, SettingsUtils.s, 0, getIntent().getBooleanExtra("iceFishing", true), true);
-      a(this.t, 2131427635, SettingsUtils.t, 1, true, true);
-      a(this.u, 2131427539, SettingsUtils.g, 0, getIntent().getBooleanExtra("nightFishing", true), true);
+      a(localTextView5, 2131427428, str5, 1, true, bool4);	// fish_depth
+      a(this.s, 2131427456, SettingsUtils.s, 0, getIntent().getBooleanExtra("iceFishing", true), true); // ice_fishing
+      a(this.t, 2131427635, SettingsUtils.t, 1, true, true); //vertical_flasher
+      a(this.u, 2131427539, SettingsUtils.g, 0, getIntent().getBooleanExtra("nightFishing", true), true); // night_fishing
       int i1 = this.J.getInt(SettingsUtils.u, 15);
-      String str6 = getString(2131427384) + ": " + i1 + getString(2131427519);
+      String str6 = getString(2131427384) + ": " + i1 + getString(2131427519);	// data_history: minutes 
       this.v.setText(str6);
       int i2 = DisplayUtils.d(this);
-      String str7 = getString(2131427337) + ": ";
+      String str7 = getString(2131427337) + ": ";	// brigtness
       String str8 = str7 + Integer.toString(i2);
       String str9 = str8 + "%";
       this.w.setText(str9);
       if (this.I.d().b() == null) {
         break label741;
       }
-      this.x.setText(getString(2131427622));
+      this.x.setText(getString(2131427622));	// 停止演示demo
       return;
       j = 0;
       break;
       k = 0;
       break label201;
-      str2 = getString(2131427432) + ": " + getString(2131427467);
+      str2 = getString(2131427432) + ": " + getString(2131427467);	// frequency:kHz90
       break label257;
       bool1 = false;
       break label280;
@@ -229,7 +230,7 @@ public class SettingsActivity
       break label366;
     }
     label741:
-    this.x.setText(getString(2131427578));
+    this.x.setText(getString(2131427578));	// 执行演示demo
   }
   
   private void h()
@@ -419,26 +420,26 @@ public class SettingsActivity
         startActivityForResult(localIntent8, 1);
         return;
       }
-      if (paramView == this.x)
+      if (paramView == this.x)	// 执行或者停止演示 DEMO
       {
         int i;
         String str1;
-        if (this.I.d().b() != null)
+        if (this.I.d().b() != null)	// DeeperDeviceManager.b() FileService成员变量
         {
           i = 1;
           boolean bool = false;
-          if (i == 0) {
-            bool = true;
-          }
-          if (i == 0) {
-            break label498;
-          }
+//          if (i == 0) {
+//            bool = true;
+//          }
+//          if (i == 0) {
+//            break label498;
+//          }
           str1 = "DEVICE_ADDRESS";
-          startActivity(a(this, bool, str1));
-          finish();
-          if (i == 0) {
-            break label504;
-          }
+          startActivity(a(this, bool, str1));	// WrapperActivity.a(this, false, "DEVICE_ADDRESS") 
+          finish();	// 当调用finish()时，只是将活动推向后台，并没有立即释放内存
+//          if (i == 0) {
+//            break label504;
+//          }
         }
         for (String str2 = "stop";; str2 = "start")
         {
@@ -476,7 +477,7 @@ public class SettingsActivity
   public void onCreate(Bundle paramBundle)
   {
     super.onCreate(paramBundle);
-    setContentView(2130903081);
+    setContentView(2130903081);	// settings_activity
     ButterKnife.a(this);
     this.J = SettingsUtils.a(this);
     this.n.setOnClickListener(this);
@@ -487,7 +488,7 @@ public class SettingsActivity
     this.t.setOnClickListener(this);
     this.v.setOnClickListener(this);
     this.w.setOnClickListener(this);
-    this.x.setOnClickListener(this);
+    this.x.setOnClickListener(this);	// 演示按钮
     if (getIntent().getBooleanExtra("iceFishing", true))
     {
       this.s.setOnClickListener(this);

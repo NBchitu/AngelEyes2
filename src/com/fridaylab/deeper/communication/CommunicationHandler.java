@@ -9,7 +9,7 @@ import android.os.Message;
 import android.support.v4.content.LocalBroadcastManager;
 
 class CommunicationHandler
-  extends Handler
+  extends Handler	// handler用于异步消息的处理
 {
   private final BluetoothAdapter a = BluetoothAdapter.getDefaultAdapter();
   private final Context b;
@@ -18,13 +18,13 @@ class CommunicationHandler
   private boolean e;
   private DeeperLink f;
   private DeeperFinder g;
-  private CommunicationProtocol.ConnectionInfo h;
+  private CommunicationProtocol$ConnectionInfo h;
   
   public CommunicationHandler(Context paramContext)
   {
     this.b = paramContext;
-    this.h = new CommunicationProtocol.ConnectionInfo(CommunicationProtocol.ConnectionState.c, DeeperModel.a);
-  }
+    this.h = new CommunicationProtocol$ConnectionInfo(CommunicationProtocol$ConnectionState.c, DeeperModel.a);
+  }	// ConnectionState："Exploring"
   
   private void a(BluetoothAgent paramBluetoothAgent)
   {
@@ -113,7 +113,7 @@ class CommunicationHandler
   {
     if ((this.f == null) && (this.g == null))
     {
-      this.h = new CommunicationProtocol.ConnectionInfo(CommunicationProtocol.ConnectionState.g, this.h.b);
+      this.h = new CommunicationProtocol$ConnectionInfo(CommunicationProtocol$ConnectionState.g, this.h.b);
       return;
     }
     a(this.f);
@@ -139,15 +139,15 @@ class CommunicationHandler
     }
   }
   
-  public CommunicationProtocol.ConnectionInfo a()
+  public CommunicationProtocol$ConnectionInfo a()
   {
     return this.h;
   }
   
-  public void a(CommunicationProtocol.ConnectionState paramConnectionState, DeeperModel paramDeeperModel)
+  public void a(CommunicationProtocol$ConnectionState paramConnectionState, DeeperModel paramDeeperModel)
   {
     if ((paramDeeperModel == null) && (hasMessages(502))) {
-      paramConnectionState = CommunicationProtocol.ConnectionState.c;
+      paramConnectionState = CommunicationProtocol$ConnectionState.c;
     }
     if ((this.h.a != paramConnectionState) || (this.h.b != paramDeeperModel)) {
       if (paramDeeperModel != null) {
@@ -160,12 +160,13 @@ class CommunicationHandler
       if (localDeeperModel == null) {
         localDeeperModel = DeeperModel.a;
       }
-      this.h = new CommunicationProtocol.ConnectionInfo(paramConnectionState, localDeeperModel);
+      this.h = new CommunicationProtocol$ConnectionInfo(paramConnectionState, localDeeperModel);
       LocalBroadcastManager.a(this.b).a(new Intent("com.fridaylab.deeper.STATE_CHANGED"));
       return;
     }
   }
   
+  // 处理传入的异步消息
   public void handleMessage(Message paramMessage)
   {
     int i = 1;
@@ -207,7 +208,7 @@ class CommunicationHandler
       } else if (paramMessage.what == 804) {
         f();
       } else if (paramMessage.what == 802) {
-        a(CommunicationProtocol.ConnectionState.values()[paramMessage.arg1], (DeeperModel)paramMessage.obj);
+        a(CommunicationProtocol$ConnectionState.values()[paramMessage.arg1], (DeeperModel)paramMessage.obj);
       }
     }
   }

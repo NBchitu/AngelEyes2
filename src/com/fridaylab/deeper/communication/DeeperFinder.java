@@ -22,15 +22,15 @@ public class DeeperFinder
   private final String f;
   private final boolean g;
   private final ArrayDeque<BluetoothDevice> h = new ArrayDeque();
-  private final DeeperFinder.BluetoothObserver i = new DeeperFinder.BluetoothObserver(this);
+  private final DeeperFinder$BluetoothObserver i = new DeeperFinder$BluetoothObserver(this);
   private boolean j = false;
   private boolean k = false;
   private boolean l = false;
   private boolean m = true;
   private boolean n = false;
   private boolean o;
-  private final Runnable q = new DeeperFinder.1(this);
-  private final BroadcastReceiver r = new DeeperFinder.2(this);
+  private final Runnable q = new DeeperFinder$1(this);
+  private final BroadcastReceiver r = new DeeperFinder$2(this);
   
   public DeeperFinder(Context paramContext, CommunicationHandler paramCommunicationHandler, String paramString, boolean paramBoolean)
   {
@@ -95,7 +95,7 @@ public class DeeperFinder
   private void j()
   {
     this.j = true;
-    a(CommunicationProtocol.ConnectionState.c, null);
+    a(CommunicationProtocol$ConnectionState.c, null);
     this.k = true;
     this.d.registerReceiver(this.r, SettingsDeepersActivity.g(), null, this.c);
     this.e.startDiscovery();
@@ -144,10 +144,10 @@ public class DeeperFinder
       if (a_()) {
         break label66;
       }
-      a(CommunicationProtocol.ConnectionState.d, DeeperModel.a(localBluetoothDevice));
+      a(CommunicationProtocol$ConnectionState.d, DeeperModel.a(localBluetoothDevice));
       this.n = true;
       break label66;
-      a(CommunicationProtocol.ConnectionState.b, null);
+      a(CommunicationProtocol$ConnectionState.b, null);
     } while (this.b);
     this.i.a();
     return;
@@ -162,13 +162,13 @@ public class DeeperFinder
     if ((!this.l) && (!this.n))
     {
       if ((!this.j) || (this.m)) {
-        a(CommunicationProtocol.ConnectionState.b, null);
+        a(CommunicationProtocol$ConnectionState.b, null);
       }
     }
     else {
       return;
     }
-    a(CommunicationProtocol.ConnectionState.g, null);
+    a(CommunicationProtocol$ConnectionState.g, null);
   }
   
   public void b()
@@ -188,7 +188,7 @@ public class DeeperFinder
     this.o = this.e.isEnabled();
     if ((this.o) || (this.e.enable()))
     {
-      a(CommunicationProtocol.ConnectionState.c, null);
+      a(CommunicationProtocol$ConnectionState.c, null);
       run();
       return;
     }

@@ -10,7 +10,7 @@ import android.support.v4.content.LocalBroadcastManager;
 public class CommunicationService
   extends Service
 {
-  private CommunicationService.GatewayThread a;
+  private CommunicationService$GatewayThread a;
   private CommunicationGateway b;
   
   public static IntentFilter a()
@@ -20,11 +20,12 @@ public class CommunicationService
     return localIntentFilter;
   }
   
+  // 启动CommunicationService$GatewayThread线程
   private void b()
   {
     if (this.a == null)
     {
-      this.a = new CommunicationService.GatewayThread(this);
+      this.a = new CommunicationService$GatewayThread(this);
       this.a.start();
     }
   }
@@ -35,7 +36,7 @@ public class CommunicationService
     {
       this.a = null;
       this.b = null;
-      stopSelf();
+      stopSelf();	// 停止服务
     }
   }
   
@@ -64,7 +65,7 @@ public class CommunicationService
       this.b = null;
     }
   }
-  
+  // 每次服务启动时调用
   public int onStartCommand(Intent paramIntent, int paramInt1, int paramInt2)
   {
     b();

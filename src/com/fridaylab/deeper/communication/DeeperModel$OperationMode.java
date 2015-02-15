@@ -5,18 +5,18 @@ public enum DeeperModel$OperationMode
   static
   {
     OperationMode[] arrayOfOperationMode = new OperationMode[9];
-    arrayOfOperationMode[0] = a;
-    arrayOfOperationMode[1] = b;
-    arrayOfOperationMode[2] = c;
-    arrayOfOperationMode[3] = d;
-    arrayOfOperationMode[4] = e;
-    arrayOfOperationMode[5] = f;
-    arrayOfOperationMode[6] = g;
-    arrayOfOperationMode[7] = h;
-    arrayOfOperationMode[8] = i;
+    arrayOfOperationMode[0] = a; // "Normal"
+    arrayOfOperationMode[1] = b; // "WaitingForBootloader"
+    arrayOfOperationMode[2] = c; // "EmptyBattery"
+    arrayOfOperationMode[3] = d; // "OutOfWater"
+    arrayOfOperationMode[4] = e; // "Charging"
+    arrayOfOperationMode[5] = f; // "NoVersionResponse"
+    arrayOfOperationMode[6] = g; // "FailedAuthentication"
+    arrayOfOperationMode[7] = h; // "DoesNotReportStatus"
+    arrayOfOperationMode[8] = i; // "UnableToDetectGround"
     j = arrayOfOperationMode;
   }
-  
+
   private DeeperModel$OperationMode() {}
 }
 

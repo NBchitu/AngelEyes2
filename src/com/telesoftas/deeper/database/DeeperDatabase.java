@@ -18,10 +18,10 @@ public class DeeperDatabase
   private static final SparseIntArray a = new SparseIntArray(11);
   private static final SparseIntArray b;
   
-  static
+  static	// 天气月相
   {
-    a.put(2130837586, 2130837619);
-    a.put(2130837601, 2130837647);
+    a.put(2130837586, 2130837619);	// common_signin_btn_text_pressed_light fog
+    a.put(2130837601, 2130837647);	// eval_cell_middle_bg ic_cloud
     a.put(2130837603, 2130837648);
     a.put(2130837606, 2130837649);
     a.put(2130837646, 2130837691);

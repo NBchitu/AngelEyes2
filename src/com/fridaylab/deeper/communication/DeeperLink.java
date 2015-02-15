@@ -25,10 +25,10 @@ import java.util.UUID;
 
 public class DeeperLink
   extends BluetoothAgent
-  implements BluetoothConnection.Listener, DeeperChannel.SignalObserver, DeeperOperator.Agent, Runnable
+  implements BluetoothConnection$Listener, DeeperChannel$SignalObserver, DeeperOperator$Agent, Runnable
 {
   private static final UUID d = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB");
-  private final DeeperLink.BluetoothObserver A;
+  private final DeeperLink$BluetoothObserver A;
   private final Runnable B;
   private final Runnable C;
   private final Runnable D;
@@ -36,7 +36,7 @@ public class DeeperLink
   private final BluetoothAdapter f;
   private final String g;
   private final int h;
-  private DeeperLink.Connector i;
+  private DeeperLink$Connector i;
   private BluetoothConnection j;
   private boolean k;
   private boolean l;
@@ -65,10 +65,10 @@ public class DeeperLink
     this.w = arrayOfTransmissionAssistant;
     this.y = new DeeperChannel();
     this.z = new ArrayDeque(8);
-    this.A = new DeeperLink.BluetoothObserver(this);
-    this.B = new DeeperLink.6(this);
-    this.C = new DeeperLink.7(this);
-    this.D = new DeeperLink.8(this);
+    this.A = new DeeperLink$BluetoothObserver(this);
+    this.B = new DeeperLink$6(this);
+    this.C = new DeeperLink$7(this);
+    this.D = new DeeperLink$8(this);
     this.e = paramContext;
     this.f = BluetoothAdapter.getDefaultAdapter();
     this.g = paramString;
@@ -80,8 +80,8 @@ public class DeeperLink
   {
     if ((this.i == null) && (this.j == null))
     {
-      a(CommunicationProtocol.ConnectionState.e, DeeperModel.b(this.g));
-      this.i = new DeeperLink.Connector(this, paramInt, false);
+      a(CommunicationProtocol$ConnectionState.e, DeeperModel.b(this.g));
+      this.i = new DeeperLink$Connector(this, paramInt, false);
       this.m = System.nanoTime();
       new Handler(Looper.getMainLooper()).post(this.i);
     }

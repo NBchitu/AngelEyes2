@@ -28,9 +28,9 @@ public abstract class WrapperActivity
   
   public static Intent a(Context paramContext, boolean paramBoolean, String paramString)
   {
-    Intent localIntent = new Intent(paramContext, MainDeeperActivity.class);
-    localIntent.putExtra("DEMO", paramBoolean);
-    localIntent.putExtra("DEVICE_ADDRESS", paramString);
+    Intent localIntent = new Intent(paramContext, MainDeeperActivity.class);	// 启动演示,打开主界面
+    localIntent.putExtra("DEMO", paramBoolean);	// 传入参数1 表明为DEMO模式
+    localIntent.putExtra("DEVICE_ADDRESS", paramString);	// // 传入参数2
     return localIntent;
   }
   

@@ -27,7 +27,7 @@ public class CommunicationGateway
   public void a(String paramString, boolean paramBoolean)
   {
     CommunicationHandler localCommunicationHandler = this.a;
-    if (paramBoolean) {}
+    // if (paramBoolean) {}
     for (int i = 0;; i = 1)
     {
       localCommunicationHandler.obtainMessage(502, i, 0, paramString).sendToTarget();
@@ -40,7 +40,7 @@ public class CommunicationGateway
     this.a.obtainMessage(503).sendToTarget();
   }
   
-  public CommunicationProtocol.ConnectionInfo c()
+  public CommunicationProtocol$ConnectionInfo c()
   {
     return this.a.a();
   }

@@ -17,7 +17,7 @@ public class SettingsActivity$$ViewInjector
     paramSettingsActivity.u = ((TextView)paramFinder.a(paramObject, 2131296512, "field 'nightFishingText'"));
     paramSettingsActivity.v = ((TextView)paramFinder.a(paramObject, 2131296513, "field 'dataHistoryText'"));
     paramSettingsActivity.w = ((TextView)paramFinder.a(paramObject, 2131296514, "field 'brigtnessText'"));
-    paramSettingsActivity.x = ((TextView)paramFinder.a(paramObject, 2131296515, "field 'demoText'"));
+    paramSettingsActivity.x = ((TextView)paramFinder.a(paramObject, 2131296515, "field 'demoText'"));	// simulation
     paramSettingsActivity.y = paramFinder.a(paramObject, 2131296516, "field 'deepersView'");
     paramSettingsActivity.z = paramFinder.a(paramObject, 2131296520, "field 'manualView'");
     paramSettingsActivity.A = paramFinder.a(paramObject, 2131296521, "field 'titleBackup'");

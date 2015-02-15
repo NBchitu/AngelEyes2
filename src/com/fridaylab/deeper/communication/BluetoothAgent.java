@@ -22,7 +22,7 @@ public abstract class BluetoothAgent
   
   public abstract void a();
   
-  public void a(CommunicationProtocol.ConnectionState paramConnectionState, DeeperModel paramDeeperModel)
+  public void a(CommunicationProtocol$ConnectionState paramConnectionState, DeeperModel paramDeeperModel)
   {
     this.c.a(paramConnectionState, paramDeeperModel);
   }
@@ -37,7 +37,7 @@ public abstract class BluetoothAgent
     this.b = true;
   }
   
-  public void b(CommunicationProtocol.ConnectionState paramConnectionState, DeeperModel paramDeeperModel)
+  public void b(CommunicationProtocol$ConnectionState paramConnectionState, DeeperModel paramDeeperModel)
   {
     this.c.obtainMessage(802, paramConnectionState.ordinal(), 0, paramDeeperModel).sendToTarget();
   }

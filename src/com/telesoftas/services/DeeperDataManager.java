@@ -92,6 +92,7 @@ public class DeeperDataManager
     return this.d;
   }
   
+  // 关闭或者清空自己
   public void e()
   {
     this.b.b();

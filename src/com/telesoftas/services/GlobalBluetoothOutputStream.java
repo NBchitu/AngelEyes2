@@ -3,7 +3,7 @@ package com.telesoftas.services;
 public class GlobalBluetoothOutputStream
 {
   private static GlobalBluetoothOutputStream a;
-  private GlobalBluetoothOutputStream.BytesReceiver b;
+  private GlobalBluetoothOutputStream$BytesReceiver b;
   
   public static GlobalBluetoothOutputStream a()
   {
@@ -18,7 +18,7 @@ public class GlobalBluetoothOutputStream
     finally {}
   }
   
-  public void a(GlobalBluetoothOutputStream.BytesReceiver paramBytesReceiver)
+  public void a(GlobalBluetoothOutputStream$BytesReceiver paramBytesReceiver)
   {
     try
     {

@@ -111,7 +111,7 @@ public class DeeperReception
     super.c();
     if ((this.e > 0) && (System.nanoTime() - this.f > 5000000000L))
     {
-      a(DeeperModel.OperationMode.f);
+      a(DeeperModel$OperationMode.f);
       this.a.a();
     }
     while (this.d) {

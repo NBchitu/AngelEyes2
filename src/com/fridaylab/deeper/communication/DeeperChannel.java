@@ -21,7 +21,7 @@ public class DeeperChannel
     this.b = paramByte;
   }
   
-  public void a(byte[] paramArrayOfByte, int paramInt, DeeperChannel.SignalObserver paramSignalObserver)
+  public void a(byte[] paramArrayOfByte, int paramInt, DeeperChannel$SignalObserver paramSignalObserver)
   {
     int i = 0;
     while (i < paramInt)

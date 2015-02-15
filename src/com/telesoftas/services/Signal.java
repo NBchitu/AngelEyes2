@@ -15,6 +15,7 @@ public abstract class Signal
     Resources localResources = paramContext.getResources();
     if (a <= 0.0F)
     {
+      // fish_small_height / width_ratio
       a = localResources.getDimension(2131230725) / localResources.getDimension(2131230789);
       a = (float)Math.floor(0.3F + a);
       a = Math.max(a, 2.0F);

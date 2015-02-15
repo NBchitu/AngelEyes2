@@ -5,18 +5,18 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v4.content.LocalBroadcastManager;
 import com.fridaylab.deeper.communication.Command;
-import com.fridaylab.deeper.communication.DeeperChannel.SignalObserver;
+import com.fridaylab.deeper.communication.DeeperChannel$SignalObserver;
 import com.telesoftas.hardware.DeeperFishDataPacket;
 import com.telesoftas.hardware.DeeperRawDataPacket;
 import com.telesoftas.hardware.FishData;
-import com.telesoftas.hardware.FishData.FishSizeTypes;
+import com.telesoftas.hardware.FishData$FishSizeTypes;
 import com.telesoftas.hardware.HardwareJni;
 import com.telesoftas.hardware.NotificationPacket;
 import com.telesoftas.utilities.SoundWarningManager;
 import com.telesoftas.utilities.deeper.SettingsUtils;
 
 public class DeeperDeviceManager
-  implements DeeperChannel.SignalObserver
+  implements DeeperChannel$SignalObserver
 {
   private final Context a;
   private FileService b;
@@ -59,9 +59,9 @@ public class DeeperDeviceManager
       int i = paramArrayOfFishData.length;
       for (int j = 0; j < i; j++)
       {
-        FishData.FishSizeTypes localFishSizeTypes = paramArrayOfFishData[j].getFishRealSize();
-        if ((arrayOfBoolean[0] != 0) && (localFishSizeTypes == FishData.FishSizeTypes.a)) {}
-        while (((arrayOfBoolean[1] != 0) && (localFishSizeTypes == FishData.FishSizeTypes.b)) || ((arrayOfBoolean[2] != 0) && (localFishSizeTypes == FishData.FishSizeTypes.c))) {
+        FishData$FishSizeTypes localFishSizeTypes = paramArrayOfFishData[j].getFishRealSize();
+        if ((arrayOfBoolean[0] != 0) && (localFishSizeTypes == FishData$FishSizeTypes.a)) {}
+        while (((arrayOfBoolean[1] != 0) && (localFishSizeTypes == FishData$FishSizeTypes.b)) || ((arrayOfBoolean[2] != 0) && (localFishSizeTypes == FishData$FishSizeTypes.c))) {
           return true;
         }
       }
@@ -69,15 +69,17 @@ public class DeeperDeviceManager
     return false;
   }
   
+  // FileServeice是来读取演示时保存在.csv DEMO数据的?
   private void c(boolean paramBoolean)
   {
     a();
-    if (paramBoolean)
+    if (paramBoolean)	// 冰钓模式的演示数据
     {
       this.b = new FileService(this.a, null, 8.0F, this);
       this.b.a("recording_ice.csv", 1, false);
       return;
     }
+    // 普通模式的演示数据
     this.b = new FileService(this.a, null, 18.0F, this);
     this.b.a("recording.csv", 19, true);
   }
@@ -92,15 +94,17 @@ public class DeeperDeviceManager
     return SettingsUtils.a(this.a).getBoolean(SettingsUtils.f, false);
   }
   
+  // 清除FileService DeeperDataManager 变量
+  // 为再次该变量初始化做准备
   public void a()
   {
-    if (this.b != null)
+    if (this.b != null)	// FileService非空
     {
-      this.b.d();
-      this.b = null;
+      this.b.d(); // 关闭原有FileService操作
+      this.b = null;	// FileService指空
     }
-    if (this.d != null) {
-      this.d.e();
+    if (this.d != null) {	// DeeperDataManager 非空
+      this.d.e();	// DeeperDataManager清空
     }
   }
   
@@ -151,15 +155,15 @@ public class DeeperDeviceManager
   
   public void a(boolean paramBoolean)
   {
-    this.d.e();
-    this.d.a(2.0F);
+    this.d.e();	// 清除DeeperDataManager对象
+    this.d.a(2.0F);	// 设置DeeperDataManager成员变量,估计与SignalStream有关
     c(paramBoolean);
   }
   
   public String b()
   {
-    if ((this.b != null) && (this.b.c())) {
-      return this.b.a();
+    if ((this.b != null) && (this.b.c())) {	// FileService非空 && 
+      return this.b.a();	// a() FileService打开的文件名?
     }
     return null;
   }
@@ -200,10 +204,10 @@ public class DeeperDeviceManager
   
   public int c()
   {
-    if ((this.b != null) && (this.b.c())) {
-      return this.b.b();
+    if ((this.b != null) && (this.b.c())) {	// FielService非空 && 
+      return this.b.b();		// 返回FielService中的int参数,该参数创建时传入
     }
-    return 5;
+    return 5;				// 默认返回5
   }
   
   public void c(Context paramContext)

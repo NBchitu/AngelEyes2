@@ -480,7 +480,7 @@ private void b(boolean paramBoolean)
     if (bool1)	// 演示所用
     {
       this.al.b();
-      int i = this.ad.getInt(SettingsUtils.s, 0);	// 
+      int i = this.ad.getInt(SettingsUtils.s, 0);	// 读取配置文件是否为冰钓模式
       boolean bool2 = false;
       if (i == 1) {
         bool2 = true;
@@ -488,11 +488,10 @@ private void b(boolean paramBoolean)
       if (bool2)	// 演示冰钓模式
       {
         str3 = "recording_ice.csv";
-        if (!str3.equals(this.I.d().b()))	// I变量为 DeeperApplication继承Application
+        if (!str3.equals(this.I.d().b()))	// 未打开文件"recording_ice.csv"的FileServeice
         {
-          this.I.d().a();	// DeeperDeviceManager d() return (DeeperDeviceManager)this.c 
-          					// d().a()
-          this.I.d().a(bool2);
+          this.I.d().a();	//  DeeperDeviceManager 清除其FileService和DeeperDataManager成员变量
+          this.I.d().a(bool2);	// bool2指定冰钓模式, 在DeeperDataManager中创建FileServices,打开演示数据
         }
       }
     }
@@ -1640,7 +1639,7 @@ void b(String paramString)
     this.al.a(paramString);
     return;
   }
-  a(new CommunicationProtocol.ConnectionInfo(CommunicationProtocol.ConnectionState.d, DeeperModel.b(paramString)), true);
+  a(new CommunicationProtocol$ConnectionInfo(CommunicationProtocol$ConnectionState.d, DeeperModel.b(paramString)), true);
 }
 
 public void c(String paramString)
@@ -1892,7 +1891,7 @@ public void onClick(View paramView)
     if (paramView == this.B)	// 蓝牙重连图标点击
     {
       u();	// 打开睡眠模式
-      this.I.d().a();	// crash
+      this.I.d().a();	// DeeperDeviceManager 清除其FileService和DeeperDataManager成员变量
       if (this.al.c().a == CommunicationProtocol.ConnectionState.f) {
         m().a(MapBuilder.a("Hardware", "disconnect", "Reconnect", null).a());	// crash
       }
@@ -2034,7 +2033,7 @@ protected void onDestroy()
     if (this.G != null) {
       this.G.e();
     }
-    this.I.d().a();
+    this.I.d().a(); //  DeeperDeviceManager 清除其FileService和DeeperDataManager成员变量
   }
   super.onDestroy();
 }

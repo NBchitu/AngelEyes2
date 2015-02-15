@@ -2,7 +2,7 @@ package com.telesoftas.hardware;
 
 import java.util.Locale;
 
-public class HardwareInfo
+public class HardwareInfo	// 设备硬件相关 固件等
 {
   public static final int ACTION_UNRECOGNIZED = 0;
   public static final int ACTION_UPDATE_BOOTLOADER = 5;
