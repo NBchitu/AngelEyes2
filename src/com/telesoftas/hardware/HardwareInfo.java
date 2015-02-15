@@ -1,8 +1,8 @@
-package com.telesoftas.hardware;
+ï»¿package com.telesoftas.hardware;
 
 import java.util.Locale;
 
-public class HardwareInfo	// Éè±¸Ó²¼þÏà¹Ø ¹Ì¼þµÈ
+public class HardwareInfo	// è®¾å¤‡ç¡¬ä»¶ç›¸å…³ å›ºä»¶ç­‰
 {
   public static final int ACTION_UNRECOGNIZED = 0;
   public static final int ACTION_UPDATE_BOOTLOADER = 5;
@@ -100,8 +100,4 @@ public class HardwareInfo	// Éè±¸Ó²¼þÏà¹Ø ¹Ì¼þµÈ
   }
 }
 
-
-/* Location:           C:\DISKD\fishfinder\apktool-install-windows-r05-ibot\classes_dex2jar.jar
- * Qualified Name:     com.telesoftas.hardware.HardwareInfo
- * JD-Core Version:    0.7.0.1
- */
+/* Location:           C:\DISKD\fishfinder\apktool-install-windows-r05-ibot\classes_dex2jar.jar * Qualified Name:     com.telesoftas.hardware.HardwareInfo * JD-Core Version:    0.7.0.1 */
